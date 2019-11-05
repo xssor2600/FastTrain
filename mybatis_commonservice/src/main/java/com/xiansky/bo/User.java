@@ -9,6 +9,7 @@ import javax.persistence.Table;
 /**
  * @Author: xianl
  * @Date: 2019/11/5 16:08
+ * 通用mapper需要jpa的表实体映射
  */
 @Data
 @Table(name = "T_USER")
