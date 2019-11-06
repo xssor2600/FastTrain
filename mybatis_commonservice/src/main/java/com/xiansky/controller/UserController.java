@@ -1,7 +1,9 @@
 package com.xiansky.controller;
 
 import com.xiansky.bo.User;
+import com.xiansky.bo.UserTmp;
 import com.xiansky.service.UserServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,8 +29,12 @@ public class UserController {
 	}
 
 	@RequestMapping("get")
-	public User get(User user) {
-		return userService.get(user);
+	public UserTmp get(User user) {
+		final User user1 = userService.get(user);
+		// 测试全局日期格式化JsonComponent
+		UserTmp tmp = new UserTmp();
+		BeanUtils.copyProperties(user1,tmp);
+		return tmp;
 	}
 
 	@RequestMapping("update")

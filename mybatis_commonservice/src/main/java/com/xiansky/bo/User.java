@@ -26,4 +26,5 @@ public class User {
 
 	@Column(name = "PHONE_NUM")
 	private String mobileNum;
+
 }
